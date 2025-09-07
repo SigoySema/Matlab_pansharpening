@@ -52,14 +52,17 @@ L = 11;
 switch im_tag
     case 'WV2'
         %load('Datasets/Rome_RR.mat');
-        I_MS = imread('\\Mac\Home\Desktop\MatlabWorkspace\pansharpeningtoolver_1_3\Pansharpening Tool ver 1.3\Datasets\WV2\ms\761.tif')
+        %I_MS = imread('\\Mac\Home\Desktop\MatlabWorkspace\pansharpeningtoolver_1_3\Pansharpening Tool ver 1.3\Datasets\WV2\ms\761.tif')
+        %I_MS = imread('\\Mac\Home\Desktop\MatlabWorkspace\pa nsharpeningtoolver_1_3\Pansharpening Tool ver 1.3\Datasets\WV2\ms\761.tif')
         %I_MS = imread('/home/b507/Documents/MATLAB/pansharpeningtoolver_1_3/Pansharpening Tool ver 1.3/Output_img/WV2/MSDCNNwv2/test/761.tif')
-        I_MS_loaded = I_MS;
-        I_MS = imread('\\Mac\Home\Desktop\MatlabWorkspace\pansharpeningtoolver_1_3\Pansharpening Tool ver 1.3\Datasets\WV2\pan\761.tif')
+        %I_MS = imread('\\Mac\Home\Desktop\MatlabWorkspace\pansharpeningtoolver_1_3\Pansharpening Tool ver 1.3\Datasets\WV2\pan\761.tif')
         %I_PAN_LR = imread('/home/b507/Documents/MATLAB/pansharpeningtoolver_1_3/Pansharpening Tool ver 1.3/Datasets/WV2/pan/761.tif')
+        I_MS = imread(fullfile(pwd, 'Datasets', 'yaogan','WV2_data','ms',sprintf('%d.tif', indexImage))); 
+        I_MS_loaded = I_MS;
+        I_PAN_LR = imread(fullfile(pwd, 'Datasets', 'WV2','pan',sprintf('%d.tif', indexImage)));
         I_PAN_loaded = I_PAN_LR;
-        %I_MS_loaded = I_MS;
-        %I_PAN_loaded = I_PAN_LR;
+        
+        im_prepare='resize';
         im_prepare='resize';
     case 'China'
         load('Datasets/China_RR.mat');
@@ -118,3 +121,4 @@ if strcmp(im_tag,'WV2') || strcmp(im_tag,'China')|| strcmp(im_tag,'WV3')||strcmp
     end
   
 end
+
